@@ -1,0 +1,20 @@
+SET FOREIGN_KEY_CHECKS = 0;
+
+TRUNCATE TABLE Asset;
+TRUNCATE TABLE Departments;
+TRUNCATE TABLE employee;
+TRUNCATE TABLE EmployeeAssets;
+TRUNCATE TABLE EmployeeAttendance;
+TRUNCATE TABLE EmployeeAttendanceTrack;
+TRUNCATE TABLE EmployeeEmails;
+TRUNCATE TABLE employeephonenumbers;
+TRUNCATE TABLE Holiday;
+TRUNCATE TABLE `Leave`;
+TRUNCATE TABLE OrganizationEmails;
+TRUNCATE TABLE OrganizationExpenses;
+TRUNCATE TABLE OrganizationPhoneNumbers;
+TRUNCATE TABLE Organizations;
+TRUNCATE TABLE Payroll;
+TRUNCATE TABLE Roles;
+
+SET FOREIGN_KEY_CHECKS = 1;

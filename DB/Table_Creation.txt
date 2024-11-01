@@ -1,0 +1,153 @@
+CREATE TABLE Organizations (
+    OrganizationID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Address VARCHAR(300),
+    StartDate varchar(20)
+);
+
+CREATE TABLE OrganizationPhoneNumbers (
+    OrganizationID int NOT NULL,
+    PhoneNumber VARCHAR(17) NOT NULL,
+    IsPrimary BOOLEAN,
+    PRIMARY KEY (OrganizationID, PhoneNumber)
+);
+
+CREATE TABLE OrganizationEmails (
+    OrganizationID INT,
+    EmailID INT,
+    Email VARCHAR(100) NOT NULL,
+    PRIMARY KEY (OrganizationID, EmailID)
+);
+
+CREATE TABLE OrganizationExpenses (
+    OrganizationID INT NOT NULL,
+    EmployeeID int NOT NULL,
+    ExpenseID INT NOT NULL,
+    Amount REAL(10,5),
+    Type VARCHAR(100),
+    Date varchar(20),
+    Description VARCHAR(1000),
+    PRIMARY KEY (OrganizationID, EmployeeID, ExpenseID)
+);
+
+CREATE TABLE Employee (
+    EmployeeID INT NOT NULL,
+    OrganizationID int NOT NULL,
+    EmailID varchar(100),
+    Name VARCHAR(40),
+    DOB varchar(20),
+    DoorNumber MEDIUMINT,
+    Area VARCHAR(100),
+    City VARCHAR(100),
+    District VARCHAR(100),
+    Country VARCHAR(100),
+    PINCode VARCHAR(6),
+    DepartmentID int,
+    RoleID int,
+    JoiningDate varchar(20),
+    OfficeLocation VARCHAR(100),
+    ManagerID int,
+    EmploymentType VARCHAR(50),
+    MaritalStatus BOOLEAN,
+    Password varchar(100),
+    Primary Key(OrganizationID,EmployeeID)
+);
+
+CREATE TABLE EmployeePhoneNumbers (
+    OrganizationID int NOT NULL,
+    EmployeeID int NOT NULL,
+    PhoneNumber VARCHAR(20) NOT NULL,
+    IsPrimary BOOLEAN,
+    PRIMARY KEY (OrganizationID, EmployeeID, PhoneNumber)
+);
+
+CREATE TABLE EmployeeEmails (
+    EmailID int,
+    OrganizationID int,
+    EmployeeID int,
+    Email VARCHAR(100) NOT NULL,
+    PRIMARY KEY (OrganizationID, EmployeeID, EmailID)
+);
+
+CREATE TABLE EmployeeAttendanceTrack (
+    OrganizationID int NOT NULL, 
+    EmployeeID int NOT NULL,
+    Date varchar(20) NOT NULL,
+    ShiftStartTime TIME,
+    ShiftEndTime TIME,
+    PRIMARY KEY (OrganizationID, EmployeeID, Date)
+);
+
+CREATE TABLE EmployeeAttendance (
+    OrganizationID int NOT NULL,
+    EmployeeID int NOT NULL,
+    Date Date NOT NULL,
+    Status VARCHAR(20),
+    LeaveId int,
+    PRIMARY KEY (OrganizationID, EmployeeID, Date)
+);
+
+CREATE TABLE Holiday (
+    OrganizationID int NOT NULL,
+    HolidayDate Date NOT NULL,
+    Description TEXT,
+    PRIMARY KEY (OrganizationID, HolidayDate)
+);
+
+CREATE TABLE `Leave` (
+    OrganizationID int NOT NULL,
+    LeaveRequestID INT NOT NULL,
+    EmployeeID int,
+    LeaveType VARCHAR(20),
+    StartDate Date,
+    EndDate Date,
+    Description TEXT,
+    Status VARCHAR(20),
+    PRIMARY KEY (OrganizationID, LeaveRequestID)
+);
+
+CREATE TABLE Roles (
+    OrganizationID int NOT NULL,
+    RoleID INT NOT NULL NOT NULL,
+    Name VARCHAR(100),
+    PRIMARY KEY (OrganizationID, RoleID)
+);
+
+CREATE TABLE Departments (
+    OrganizationID int NOT NULL,
+    DepartmentID INT NOT NULL NOT NULL,
+    DepartmentName VARCHAR(100),
+    ManagerID int,
+    PRIMARY KEY (OrganizationID, DepartmentID)
+);
+
+CREATE TABLE Payroll (
+    PayrollID INT  PRIMARY KEY,
+    OrganizationID int,
+    EmployeeID int,
+    Salary REAL(20,5),
+    Bonus REAL(20,5),
+    Deductions REAL(20,5),
+    Tax REAL(20,5),
+    PayDate varchar(20),
+    Description VARCHAR(1000)
+);
+
+CREATE TABLE Asset (
+    OrganizationID int NOT NULL,
+    AssetID INT NOT NULL NOT NULL,
+    Name VARCHAR(100),
+    Price REAL(10,5),
+    PurchaseDate varchar(20),
+    Status VARCHAR(30),
+    PRIMARY KEY (OrganizationID, AssetID)
+);
+
+CREATE TABLE EmployeeAssets (
+    OrganizationID int NOT NULL,
+    EmployeeID int NOT NULL,
+    AssetID int NOT NULL,
+    PRIMARY KEY (OrganizationID, EmployeeID, AssetID)
+);
+
+show tables;

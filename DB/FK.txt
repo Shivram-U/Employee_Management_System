@@ -1,0 +1,80 @@
+ALTER TABLE OrganizationPhoneNumbers
+ADD CONSTRAINT fk_OrganizationPhoneNumbers_Organizations 
+FOREIGN KEY (OrganizationID) REFERENCES Organizations(OrganizationID);
+
+ALTER TABLE OrganizationEmails
+ADD CONSTRAINT fk_OrganizationEmails_Organizations 
+FOREIGN KEY (OrganizationID) REFERENCES Organizations(OrganizationID);
+
+ALTER TABLE OrganizationExpenses
+ADD CONSTRAINT fk_OrganizationExpenses_Employee 
+FOREIGN KEY (OrganizationID,EmployeeID) REFERENCES Employee(OrganizationID,EmployeeID);
+
+ALTER TABLE Employee
+ADD CONSTRAINT fk_Employee_Departments 
+FOREIGN KEY (OrganizationID,DepartmentID) REFERENCES Departments(OrganizationID,DepartmentID),
+ADD CONSTRAINT fk_Employee_Roles 
+FOREIGN KEY (OrganizationID,RoleID) REFERENCES Roles(OrganizationID,RoleID),
+ADD CONSTRAINT fk_Employee_Manager 
+FOREIGN KEY (OrganizationID,ManagerID) REFERENCES Employee(OrganizationID,EmployeeID);
+
+ALTER TABLE EmployeePhoneNumbers
+ADD CONSTRAINT fk_EmployeePhoneNumbers_Employee 
+FOREIGN KEY (OrganizationID,EmployeeID) REFERENCES Employee(OrganizationID,EmployeeID);
+
+ALTER TABLE EmployeeEmails
+ADD CONSTRAINT fk_EmployeeEmails_Employee 
+FOREIGN KEY (OrganizationID,EmployeeID) REFERENCES Employee(OrganizationID,EmployeeID);
+
+ALTER TABLE EmployeeAttendanceTrack
+ADD CONSTRAINT fk_EmployeeAttendanceTrack_Employee 
+FOREIGN KEY (OrganizationID,EmployeeID) REFERENCES Employee(OrganizationID,EmployeeID);
+
+ALTER TABLE EmployeeAttendance
+ADD CONSTRAINT fk_EmployeeAttendance_Employee 
+FOREIGN KEY (OrganizationID,EmployeeID) REFERENCES Employee(OrganizationID,EmployeeID);
+
+ALTER TABLE Holiday
+ADD CONSTRAINT fk_Holiday_Organizations 
+FOREIGN KEY (OrganizationID) REFERENCES Organizations(OrganizationID);
+
+ALTER TABLE `Leave`  
+ADD CONSTRAINT fk_Leave_Employee 
+FOREIGN KEY (OrganizationID,EmployeeID) REFERENCES Employee(OrganizationID,EmployeeID);
+
+ALTER TABLE EmployeeQualifications
+ADD CONSTRAINT fk_EmployeeQualifications_Employee 
+FOREIGN KEY (OrganizationID,EmployeeID) REFERENCES Employee(OrganizationID,EmployeeID);
+
+ALTER TABLE Roles
+ADD CONSTRAINT fk_Roles_Organizations 
+FOREIGN KEY (OrganizationID) REFERENCES Organizations(OrganizationID);
+
+ALTER TABLE Departments
+ADD CONSTRAINT fk_Departments_Employee 
+FOREIGN KEY (OrganizationID,ManagerID) REFERENCES Employee(OrganizationID,EmployeeID);
+
+ALTER TABLE Payroll
+ADD CONSTRAINT fk_Payroll_Employee 
+FOREIGN KEY (OrganizationID,EmployeeID) REFERENCES Employee(OrganizationID,EmployeeID);
+
+ALTER TABLE Asset
+ADD CONSTRAINT fk_Asset_Organizations 
+FOREIGN KEY (OrganizationID) REFERENCES Organizations(OrganizationID);
+
+ALTER TABLE EmployeeAssets
+ADD CONSTRAINT fk_asset_Employee 
+FOREIGN KEY (OrganizationID,EmployeeID) REFERENCES Employee(OrganizationID,EmployeeID),
+ADD CONSTRAINT fk_Assets 
+FOREIGN KEY (OrganizationID,AssetID) REFERENCES Asset(OrganizationID,AssetID);
+
+SELECT 
+    TABLE_NAME AS 'Table', 
+    CONSTRAINT_NAME AS 'Constraint', 
+    REFERENCED_TABLE_NAME AS 'Referenced Table', 
+    REFERENCED_COLUMN_NAME AS 'Referenced Column'
+FROM 
+    INFORMATION_SCHEMA.KEY_COLUMN_USAGE
+WHERE 
+    TABLE_SCHEMA = 'EMS' AND 
+    REFERENCED_TABLE_NAME IS NOT NULL;

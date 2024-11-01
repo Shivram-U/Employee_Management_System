@@ -1,0 +1,26 @@
+SELECT * FROM Asset;
+SELECT * FROM Departments;
+SELECT * FROM employee;
+SELECT * FROM EmployeeAssets;
+SELECT * FROM EmployeeAttendance;
+SELECT * FROM EmployeeAttendanceTrack;
+SELECT * FROM EmployeeEmails;
+SELECT * FROM employeephonenumbers;
+SELECT * FROM Holiday;
+SELECT * FROM `Leave`;
+SELECT * FROM OrganizationEmails;
+SELECT * FROM OrganizationExpenses;
+SELECT * FROM OrganizationPhoneNumbers;
+SELECT * FROM Organizations;
+SELECT * FROM Payroll;
+SELECT * FROM Roles;
+
+SELECT * FROM Organizations;
+SELECT * FROM OrganizationEmails;
+SELECT * FROM OrganizationExpenses;
+SELECT * FROM OrganizationPhoneNumbers;
+
+SELECT * FROM employee;
+SELECT * FROM Roles;
+SELECT * FROM Departments;
+SELECT * FROM Payroll;

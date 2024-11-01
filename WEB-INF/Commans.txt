@@ -1,0 +1,2 @@
+1. javac -cp "/Applications/Tomcat/webapps/Employee_Management_System/WEB-INF/lib/*;/Applications/Tomcat/webapps/Employee_Management_System/WEB-INF/classes/Beans/*;" -d . DBUtil/OrgDBHandler.java
+2. javac -d classes -cp "lib/*" classes/BusinessLogic/*.java classes/DBUtil/*.java

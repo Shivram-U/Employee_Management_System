@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+  version="4.0"
+  metadata-complete="true">
+
+    <filter>
+        <filter-name>JWTAuthFilter</filter-name>
+        <filter-class>Authentication.JWTAuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>JWTAuthFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+		<servlet-name>Auth</servlet-name>
+		<servlet-class>BusinessLogic.Auth</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/signin</url-pattern>
+		<servlet-name>Auth</servlet-name>
+	</servlet-mapping>
+
+    <servlet>
+		<servlet-name>OrganizationProfile</servlet-name>
+		<servlet-class>BusinessLogic.Organization</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/signup</url-pattern>
+		<servlet-name>OrganizationProfile</servlet-name>
+	</servlet-mapping>
+	<servlet-mapping>
+		<url-pattern>/Organization</url-pattern>
+		<servlet-name>OrganizationProfile</servlet-name>
+	</servlet-mapping>
+
+    <servlet>
+		<servlet-name>OrgPhnProfile</servlet-name>
+		<servlet-class>BusinessLogic.OrganizationPhoneNumber</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/OrgPhn</url-pattern>
+		<servlet-name>OrgPhnProfile</servlet-name>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>OrgEmlProfile</servlet-name>
+		<servlet-class>BusinessLogic.OrganizationEmail</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/OrgEml</url-pattern>
+		<servlet-name>OrgEmlProfile</servlet-name>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>OrgExpProfile</servlet-name>
+		<servlet-class>BusinessLogic.OrganizationExpense</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/OrgExp</url-pattern>
+		<servlet-name>OrgExpProfile</servlet-name>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EmployeeProfile</servlet-name>
+		<servlet-class>BusinessLogic.Employee</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/Profile</url-pattern>
+		<servlet-name>EmployeeProfile</servlet-name>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EmployeeMgmt</servlet-name>
+		<servlet-class>BusinessLogic.EmployeeMgmt</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/Employee</url-pattern>
+		<servlet-name>EmployeeMgmt</servlet-name>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>EmployeePhn</servlet-name>
+		<servlet-class>BusinessLogic.EmployeePhoneNumbers</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/EmployeePhn</url-pattern>
+		<servlet-name>EmployeePhn</servlet-name>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EmployeeEml</servlet-name>
+		<servlet-class>BusinessLogic.EmployeeEmails</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/EmployeeEml</url-pattern>
+		<servlet-name>EmployeeEml</servlet-name>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DepartmentProfile</servlet-name>
+		<servlet-class>BusinessLogic.Department</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/Department</url-pattern>
+		<servlet-name>DepartmentProfile</servlet-name>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DepartmentMgmt</servlet-name>
+		<servlet-class>BusinessLogic.DepartmentMgmt</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/DepartmentMgmt</url-pattern>
+		<servlet-name>DepartmentMgmt</servlet-name>
+	</servlet-mapping>
+
+    <servlet>
+		<servlet-name>RoleProfile</servlet-name>
+		<servlet-class>BusinessLogic.Role</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/Role</url-pattern>
+		<servlet-name>RoleProfile</servlet-name>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RoleMgmt</servlet-name>
+		<servlet-class>BusinessLogic.RoleMgmt</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/RoleMgmt</url-pattern>
+		<servlet-name>RoleMgmt</servlet-name>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AssetProfile</servlet-name>
+		<servlet-class>BusinessLogic.Assets</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/Asset</url-pattern>
+		<servlet-name>AssetProfile</servlet-name>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AssetMgmt</servlet-name>
+		<servlet-class>BusinessLogic.AssetMgmt</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/AssetMgmt</url-pattern>
+		<servlet-name>AssetMgmt</servlet-name>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Payroll</servlet-name>
+		<servlet-class>BusinessLogic.Payroll</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/Payroll</url-pattern>
+		<servlet-name>Payroll</servlet-name>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EmployeeAttd</servlet-name>
+		<servlet-class>BusinessLogic.EmployeeAttendance</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/EmpAttd</url-pattern>
+		<servlet-name>EmployeeAttd</servlet-name>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Holiday</servlet-name>
+		<servlet-class>BusinessLogic.Holidays</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/Holiday</url-pattern>
+		<servlet-name>Holiday</servlet-name>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EmployeeLeave</servlet-name>
+		<servlet-class>BusinessLogic.EmployeeLeave</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/EmpLeav</url-pattern>
+		<servlet-name>EmployeeLeave</servlet-name>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EmployeeLeaveMgmt</servlet-name>
+		<servlet-class>BusinessLogic.EmployeeLeaveMgmt</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<url-pattern>/EmpLeavMgmt</url-pattern>
+		<servlet-name>EmployeeLeaveMgmt</servlet-name>
+	</servlet-mapping>
+
+</web-app>
